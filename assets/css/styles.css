@@ -1,6 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 796px) {
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 4rem;
+  margin: 0px 20rem;
+}
+a {
+  text-decoration: none;
+}
+.nav {
+  list-style-type: none;
+}
+.nav:hover {
+  color: white;
+}
+body {
+  height: 100vh;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-size: 16px;
+}
+.logo {
+  width: 3rem;
+  height: 3rem;
+}
 .aboutUs {
   width: 500px;
   display: flex;
   background-color: #f6f6f6;
   margin: 10px;
+}
+header {
+  display: flex;
+}
+.support-btn {
+  background: #224fc3;
+  border: none;
+  padding: 5px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  opacity: 0.9;
+  transition: 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+.support-btn a {
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: 300px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  font-size: 15px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 70px;
+  padding: 1rem 1rem;
+  margin: 1rem 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.container {
+  padding: 20px;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
