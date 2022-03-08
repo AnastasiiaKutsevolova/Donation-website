@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1rem;
-  margin: 1rem 1rem;
+  margin: 0rem 1rem;
 }
 
 a:link,
@@ -45,16 +45,22 @@ a:visited {
   margin-right: 20px;
 }
 
+.n-login {
+  background-color: rgba(255, 230, 0, 0.911);
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
 body {
   height: 100vh;
-  background-image: url("../images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
   font-size: 16px;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 100%;
 }
 
 .logo {
@@ -74,6 +80,7 @@ body {
 .aboutUs {
   width: 500px;
   display: flex;
+  align-items: center;
   background-color: #f6f6f6;
   margin: 10px;
   display: inline-flex;
@@ -85,12 +92,12 @@ h1 {
   font-size: 20px;
 }
 
-header {
-  display: flex;
+.ukraine-img {
+  width: 30%;
 }
 
 .support-btn {
-  background: #224fc3;
+  background: #528eee;
   border: none;
   padding: 5px 22px;
   text-align: center;
@@ -109,7 +116,13 @@ header {
 footer {
   text-align: center;
   padding: 10px;
-  margin-top: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: linear-gradient(
+    0deg,
+    rgba(253, 216, 45, 1) 0%,
+    rgba(34, 79, 195, 0.23462414578587698) 53%
+  );
 }
 
 input[type="text"],
@@ -134,4 +147,25 @@ input[type="password"]:focus {
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  font-family: "Roboto Serif", serif;
+}
+
+.call-to-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+main {
+  background-color: rgba(0, 0, 0, 0.924);
+  color: #fff;
+  padding: 30px;
+}
+
+.our-info {
+  color: black;
+  align-items: center;
 }
