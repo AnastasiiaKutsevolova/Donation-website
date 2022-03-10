@@ -14,23 +14,24 @@
 	  <a href="./index.html">
         <img class="logo" src="./assets/images/logo.png" alt="logo" width="30" />
       </a>
-      <h1>Stand with Ukraine</h1>
+      <span>Stand with Ukraine</span>
       </div>
       <nav>
         <ul class="nav">
-		      <li class="n-home"><a href="./index.html">Main page</a></li>
-          <li class="n-about"><a href="./about.html">About</a></li>
-          <li class="n-login"><a href="./login.html">Log in</a></li>
+		      <li id="n-home"><a href="./index.html">Main page</a></li>
+          <li id="n-about"><a href="./about.html">About</a></li>
+          <li id="n-login" class="current"><a href="./login.html">Log in</a></li>
         </ul>
       </nav>
     </header>
     <main>
+      <div class="container-login">
       <form action="/action_page.php" style="border: 1px solid #ccc">
         <div class="container">
-          <h1>Sign Up</h1>
-          <p>Please fill in this form to create an account</p>
-          <hr />
-		  <label for="name"><b>Name</b></label>
+          <h2 class="sign-up">Sign Up</h2>
+          <p class="p-login">Please fill in this form to create an account</p>
+          <hr/>
+		      <label for="name"><b>Name</b></label>
           <input type="text" placeholder="Enter your Name" name="name" required />
           <label for="email"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" required />
@@ -62,11 +63,12 @@
             <a href="#" style="color: rgb(19, 91, 207)">Terms & Privacy</a>.
           </p>
           <div class="clearfix">
-            <button type="button" class="cancelbtn">Cancel</button>
             <button type="submit" class="signupbtn">Sign Up</button>
+            <button type="button" class="cancelbtn">Cancel</button>
           </div>
         </div>
       </form>
+      </div>
     </main>
       <p>
         It's a terrifying time for Ukraine and our people. We are in the middle

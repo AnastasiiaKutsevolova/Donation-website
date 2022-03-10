@@ -33,19 +33,23 @@ a:visited {
   align-items: center;
 }
 
-.nav:hover {
-  color: white;
+.nav a:hover {
+  border-bottom: 1.5px solid black;
 }
 
-.n-about {
+.nav .current {
+  border-bottom: 1.5px solid black;
+}
+
+#n-about {
   margin-right: 20px;
 }
 
-.n-home {
+#n-home {
   margin-right: 20px;
 }
 
-.n-login {
+#n-login {
   background-color: rgba(255, 230, 0, 0.911);
   margin: 10px;
   padding: 5px 10px;
@@ -78,31 +82,39 @@ body {
 }
 
 .aboutUs {
-  width: 500px;
+  width: 60%;
   display: flex;
   align-items: center;
-  background-color: #f6f6f6;
+  background-color: none;
   margin: 10px;
   display: inline-flex;
+  background: linear-gradient(
+    0deg,
+    rgba(253, 216, 45, 1) 0%,
+    rgba(34, 79, 195, 0.23462414578587698) 53%
+  );
+  font-size: larger;
 }
 
-h1 {
+span {
   text-align: left;
-  margin-left: 0px;
-  font-size: 20px;
+  margin-left: 1rem;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .ukraine-img {
-  width: 30%;
+  width: 45%;
 }
 
 .support-btn {
   background: #528eee;
   border: none;
-  padding: 5px 22px;
+  padding: 10px 50px;
+  margin: 1rem;
   text-align: center;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 10px;
   opacity: 0.9;
   transition: 0.3s;
@@ -115,14 +127,9 @@ h1 {
 
 footer {
   text-align: center;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  background: linear-gradient(
-    0deg,
-    rgba(253, 216, 45, 1) 0%,
-    rgba(34, 79, 195, 0.23462414578587698) 53%
-  );
+  padding: 1px;
+  margin-top: 50px;
+  background: #f5f5f5d3;
 }
 
 input[type="text"],
@@ -143,14 +150,16 @@ input[type="password"]:focus {
 }
 .container {
   padding: 20px;
-  width: 40%;
+  width: 60%;
   margin: auto;
   display: flex;
   flex-direction: column;
 }
 
-h2 {
+h1 {
   font-family: "Roboto Serif", serif;
+  font-size: 2.5em;
+  margin: 2rem;
 }
 
 .call-to-action {
@@ -166,6 +175,28 @@ main {
 }
 
 .our-info {
-  color: black;
   align-items: center;
+}
+
+.sign-up {
+  text-align: center;
+  margin: 1rem;
+}
+
+.container-login {
+  width: 70%;
+  display: inline-block;
+}
+
+.p-login {
+  margin-bottom: 1rem;
+}
+
+label {
+  margin-top: 0.5rem;
+}
+
+p {
+  margin: 1rem;
+  font-size: larger;
 }
