@@ -1,17 +1,11 @@
+/* Style for all*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@media (max-width: 796px) {
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-  }
-}
+/*Style for computer*/
 
 header {
   display: flex;
@@ -171,7 +165,7 @@ h1 {
 main {
   background-color: rgba(0, 0, 0, 0.924);
   color: #fff;
-  padding: 30px;
+  padding: 0.5rem;
 }
 
 .our-info {
@@ -199,4 +193,41 @@ label {
 p {
   margin: 1rem;
   font-size: larger;
+}
+
+/* Style for mobile phone*/
+
+@media only screen and (max-width: 400px) {
+  header {
+    display: inline-block;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  span {
+    font-size: 16px;
+    padding-left: 0px;
+  }
+
+  .call-to-action {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  /*.main-section .support-btn x2 .ukraine-img*/
+  .main {
+    padding: 0;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .input {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 100%;
+    font-size: 14px;
+  }
 }
