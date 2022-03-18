@@ -1,11 +1,16 @@
-/* Style for all*/
+/* Style for all */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/*Style for computer*/
+html,
+body {
+  height: 100%;
+}
+
+/* Style for computer */
 
 header {
   display: flex;
@@ -52,13 +57,12 @@ a:visited {
 
 body {
   height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   text-align: center;
   font-size: 16px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  font-family: Roboto, sans-serif;
 }
 
 .logo {
@@ -93,7 +97,7 @@ body {
 span {
   text-align: left;
   margin-left: 1rem;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -115,15 +119,16 @@ span {
   display: inline-block;
   cursor: pointer;
 }
+
 .support-btn a {
   color: #fff;
 }
 
 footer {
-  text-align: center;
-  padding: 0.5rem;
-  margin-top: 50px;
-  background: #f5f5f5d3;
+  padding: 5px;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5d3;
 }
 
 input[type="text"],
@@ -143,6 +148,7 @@ input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
+
 .container {
   padding: 20px;
   width: 60%;
@@ -196,7 +202,67 @@ p {
   font-size: larger;
 }
 
-/* Style for mobile phone*/
+.main-page-footer {
+  position: absolute;
+}
+
+/* Style for tablet */
+
+@media only screen and (max-width: 830px) {
+  .aboutUs {
+    display: inline-block;
+    font-size: 1px;
+    align-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .ukraine-img {
+    width: 100%;
+    grid-row: 2/3;
+  }
+
+  .support-btn-container {
+    display: flex-center;
+  }
+
+  .support-btn {
+    padding: 0.3rem 1.2rem;
+    margin: 1rem;
+  }
+
+  .call-to-action {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .our-info {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .aboutUs {
+    display: inline-block;
+    font-size: 1px;
+    align-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .p-main {
+    font-size: 16px;
+  }
+
+  .p-login {
+    font-size: 16px;
+  }
+
+  footer {
+    position: absolute;
+  }
+}
+
+/* Style for mobile phone */
 
 @media only screen and (max-width: 400px) {
   header {
@@ -205,6 +271,13 @@ p {
     flex-direction: column;
     align-items: center;
   }
+
+  footer {
+    margin-top: 1rem;
+    position: static;
+    font-size: smaller;
+  }
+
   span {
     font-size: 16px;
     padding-left: 0px;
@@ -215,7 +288,7 @@ p {
   }
 
   p {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .ukraine-img {
@@ -239,6 +312,7 @@ p {
 
   .main {
     padding: 0;
+    margin-bottom: 1rem;
   }
 
   .form {
@@ -250,15 +324,15 @@ p {
   }
 
   .p-main {
-    font-size: small;
+    font-size: 12px;
+  }
+
+  .our-info {
+    font-size: 16px;
   }
 
   .container {
     width: 100%;
-    font-size: 14px;
-  }
-
-  footer {
     font-size: 14px;
   }
 
