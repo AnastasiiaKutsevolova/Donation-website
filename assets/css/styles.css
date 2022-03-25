@@ -80,17 +80,12 @@ body {
 }
 
 .aboutUs {
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: none;
   margin: 10px;
   display: inline-flex;
-  background: linear-gradient(
-    0deg,
-    rgba(253, 216, 45, 1) 0%,
-    rgba(34, 79, 195, 0.23462414578587698) 53%
-  );
   font-size: larger;
 }
 
@@ -125,6 +120,7 @@ span {
 }
 
 footer {
+  position: relative;
   padding: 5px;
   bottom: 0;
   width: 100%;
@@ -203,7 +199,27 @@ p {
 }
 
 .main-page-footer {
+  display: flex;
+  justify-content: space-between !important;
   position: absolute;
+  margin-bottom: 0 !important;
+}
+
+.footer-text {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.humanity-pic {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.pictures-about {
+  background-color: rgba(14, 13, 13, 0.596);
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 /* Style for tablet */
@@ -258,7 +274,20 @@ p {
   }
 
   footer {
-    position: absolute;
+    position: absolute !important;
+    padding-bottom: 0 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .main-page-footer {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -273,9 +302,9 @@ p {
   }
 
   footer {
-    margin-top: 1rem;
-    position: static;
-    font-size: smaller;
+    margin-top: 1rem !important;
+    position: static !important;
+    font-size: smaller !important;
   }
 
   span {
@@ -346,5 +375,15 @@ p {
 
   .humanity-pic {
     width: 50%;
+  }
+
+  .main-page-footer {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
   }
 }
