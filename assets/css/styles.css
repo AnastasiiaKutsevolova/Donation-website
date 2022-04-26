@@ -30,6 +30,10 @@ header {
   box-shadow: 7px 7px 5px 0px rgba(102, 102, 102, 0.2);
 }
 
+.card-body {
+  background-color: #1a1a1a;
+}
+
 .list-volunteer-container {
   max-height: 60vh;
   overflow: scroll;

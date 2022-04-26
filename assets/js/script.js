@@ -1,10 +1,21 @@
 document.addEventListener("DOMContentLoaded", function (event) {
   const volunteerForm = document.getElementById("volunteer-form");
-  const validation = document.querySelector(".invalid-feedback");
-  const success = document.querySelector(".valid-feedback");
   const volunteersList = document.getElementById("list-volunteer");
+
+  const validationVolunteer = document.querySelector(".invalid-volunteer-form");
+  const successVolunteer = document.querySelector(".valid-volunteer-form");
+
+  const validationLogin = document.querySelector(".invalid-login-input");
+  const successLogin = document.querySelector(".valid-login-input");
+
+  const validationSignup = document.querySelector(".invalid-signup-input");
+  const successSignup = document.querySelector(".valid-signup-input");
+
   const loginPopup = document.getElementById("login-popup");
   const loginForm = document.getElementById("login-form");
+
+  const signupPopup = document.getElementById("signup-popup");
+  const signupForm = document.getElementById("signup-form");
 
   //   Render Volunteers
 
@@ -36,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     class="card mb-4"
                     style="background-color: rgb(38, 38, 38)"
                   >
-                    <div class="card-body">
+                    <div class="card-body border rounded">
                       <div
                         class="d-flex  justify-content-between align-items-center"
                       >
@@ -75,10 +86,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const aboutMe = volunteerForm.elements["about"].value;
 
     if (emailAddress === "" || fullName === "" || aboutMe === "") {
-      validation.style.display = "block";
+      validationVolunteer.style.display = "block";
       return;
     } else {
-      validation.style.display = "none";
+      validationVolunteer.style.display = "none";
     }
 
     fetch("http://localhost:3003/volunteer", {
@@ -90,10 +101,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         about: aboutMe,
       }),
     }).then((res) => {
-      success.style.display = "block";
+      successVolunteer.style.display = "block";
 
       setTimeout(() => {
-        success.style.display = "none";
+        successVolunteer.style.display = "none";
       }, 1000);
 
       volunteerForm.reset();
@@ -102,12 +113,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Login Form
 
-  const myModal = new bootstrap.Modal(document.getElementById("modal"), {});
+  const loginModal = new bootstrap.Modal(
+    document.getElementById("login-modal"),
+    {}
+  );
+  const signupModal = new bootstrap.Modal(
+    document.getElementById("signup-modal"),
+    {}
+  );
 
   loginPopup.addEventListener("click", () => {
-    const modal = document.querySelector(".modal");
+    const modal = document.getElementById("login-modal");
     console.log("click");
-    myModal.toggle();
+    loginModal.toggle();
+    modal.style.display = "block";
+  });
+
+  signupPopup.addEventListener("click", () => {
+    const modal = document.getElementById("signup-modal");
+    console.log("click");
+    signupModal.toggle();
     modal.style.display = "block";
   });
 
@@ -120,13 +145,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const password = loginForm.elements["password"].value;
 
     if (emailAddress === "" || password === "") {
-      validation.style.display = "block";
+      validationLogin.style.display = "block";
       return;
     } else {
-      validation.style.display = "none";
+      validationLogin.style.display = "none";
     }
 
-    fetch("http://localhost:3003/signup", {
+    fetch("http://localhost:3003/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -134,13 +159,48 @@ document.addEventListener("DOMContentLoaded", function (event) {
         password: password,
       }),
     }).then((res) => {
-      success.style.display = "block";
-
+      successLogin.style.display = "block";
       setTimeout(() => {
-        success.style.display = "none";
+        loginModal.toggle();
+        successLogin.style.display = "none";
       }, 1000);
 
       loginForm.reset();
+    });
+  });
+
+  // Handle Signup form
+
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const fullName = signupForm.elements["name"].value;
+    const emailAddress = signupForm.elements["email"].value;
+    const password = signupForm.elements["password"].value;
+
+    if (fullName === "" || emailAddress === "" || password === "") {
+      validationSignup.style.display = "block";
+      return;
+    } else {
+      validationSignup.style.display = "none";
+    }
+
+    fetch("http://localhost:3003/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: fullName,
+        email: emailAddress,
+        password: password,
+      }),
+    }).then((res) => {
+      successSignup.style.display = "block";
+      setTimeout(() => {
+        signupModal.toggle();
+        successSignup.style.display = "none";
+      }, 1000);
+
+      signupForm.reset();
     });
   });
 });

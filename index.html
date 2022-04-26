@@ -32,8 +32,9 @@
           </ul>
         </nav>
       </div>
-      <div class="login m-4 fw-bolder">
-        <div id="login-popup" class="login" a href="#modal" >Log in</div>
+      <div class="login m-4 fw-bolder d-flex justify-content-around">
+        <div id="signup-popup" class="signup">Signup</div> <span class="mx-2">|</span>
+        <div id="login-popup">Login</div>
       </div>
     </header>
     <main class="px-2 l parallax">
@@ -197,8 +198,8 @@
         <hr />
         <div class="w-100 d-flex justify-content-evenly form-section">
           <form id="volunteer-form" class="become-volunteer-form p-4 w-25">
-            <div class="invalid-feedback">*All fields are required.</div>
-            <div class="valid-feedback bg-green-100">Form submitted</div>
+            <div class="invalid-feedback invalid-volunteer-form">*All fields are required.</div>
+            <div class="valid-feedback valid-volunteer-form bg-green-100">Form submitted</div>
 
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email*</label>
@@ -340,9 +341,78 @@
       </section>
     </main>
 
-    <!-- Modal -->
+    <!-- Signup Modal -->
 
-    <div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal  fade" id="signup-modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Signup</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="signup-form">
+              <div class="invalid-signup-input invalid-feedback">*All fields are required.</div>
+              <div class="valid-signup-input valid-feedback bg-green-100">Success!</div>
+              <div class="mb-3">
+                <label for="exampleDropdownFormEmail2" class="form-label"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="exampleDropdownFormEmail2"
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleDropdownFormEmail2" class="form-label"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="exampleDropdownFormEmail2"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleDropdownFormPassword2" class="form-label" 
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="exampleDropdownFormPassword2"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -356,8 +426,8 @@
           </div>
           <div class="modal-body">
             <form id="login-form">
-              <div class="invalid-feedback">*All fields are required.</div>
-              <div class="valid-feedback bg-green-100">Form submitted</div>
+              <div class="invalid-login-input invalid-feedback">*All fields are required.</div>
+              <div class="valid-login-input valid-feedback bg-green-100">Success!</div>
               <div class="mb-3">
                 <label for="exampleDropdownFormEmail2" class="form-label"
                   >Email</label
@@ -397,6 +467,9 @@
         </div>
       </div>
     </div>
+
+
+
 
     <footer
       class="main-page-footer d-flex flex-wrap align-items-center justify-content-around py-3 my-0 border-top"
