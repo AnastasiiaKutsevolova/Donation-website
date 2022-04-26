@@ -33,7 +33,7 @@
         </nav>
       </div>
       <div class="login m-4 fw-bolder">
-        <div id="login" class="login">Log in</div>
+        <div id="login-popup" class="login" a href="#modal" >Log in</div>
       </div>
     </header>
     <main class="px-2 l parallax">
@@ -355,24 +355,28 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form id="loginForm">
+            <form id="login-form">
+              <div class="invalid-feedback">*All fields are required.</div>
+              <div class="valid-feedback bg-green-100">Form submitted</div>
               <div class="mb-3">
                 <label for="exampleDropdownFormEmail2" class="form-label"
                   >Email</label
                 >
                 <input
                   type="email"
+                  name="email"
                   class="form-control"
                   id="exampleDropdownFormEmail2"
                   placeholder="email@example.com"
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleDropdownFormPassword2" class="form-label"
+                <label for="exampleDropdownFormPassword2" class="form-label" 
                   >Password</label
                 >
                 <input
                   type="password"
+                  name="password"
                   class="form-control"
                   id="exampleDropdownFormPassword2"
                   placeholder="Password"
@@ -387,7 +391,7 @@
               >
                 Cancel
               </button>
-              <button type="button" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary">Login</button>
             </div>
             </form>
         </div>

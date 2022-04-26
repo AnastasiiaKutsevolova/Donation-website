@@ -3,11 +3,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const validation = document.querySelector(".invalid-feedback");
   const success = document.querySelector(".valid-feedback");
   const volunteersList = document.getElementById("list-volunteer");
-  const loginBtn = document.getElementById("login");
-
-  const name = volunteerForm.elements["name"];
-  const email = volunteerForm.elements["email"];
-  const about = volunteerForm.elements["about"];
+  const loginPopup = document.getElementById("login-popup");
+  const loginForm = document.getElementById("login-form");
 
   //   Render Volunteers
 
@@ -68,14 +65,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   renderVolunteersList().then((data) => (volunteersList.innerHTML = data));
 
-  //   Handle form submission
+  //   Handle VOLUNTEER form submission
 
   volunteerForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const emailAddress = email.value;
-    const fullName = name.value;
-    const aboutMe = about.value;
+    const emailAddress = volunteerForm.elements["email"].value;
+    const fullName = volunteerForm.elements["name"].value;
+    const aboutMe = volunteerForm.elements["about"].value;
 
     if (emailAddress === "" || fullName === "" || aboutMe === "") {
       validation.style.display = "block";
@@ -103,14 +100,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
   });
 
-  // Login
+  // Login Form
 
   const myModal = new bootstrap.Modal(document.getElementById("modal"), {});
 
-  loginBtn.addEventListener("click", () => {
+  loginPopup.addEventListener("click", () => {
     const modal = document.querySelector(".modal");
     console.log("click");
     myModal.toggle();
     modal.style.display = "block";
+  });
+
+  //   Handle LOGIN form submission
+
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const emailAddress = loginForm.elements["email"].value;
+    const password = loginForm.elements["password"].value;
+
+    if (emailAddress === "" || password === "") {
+      validation.style.display = "block";
+      return;
+    } else {
+      validation.style.display = "none";
+    }
+
+    fetch("http://localhost:3003/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: emailAddress,
+        password: password,
+      }),
+    }).then((res) => {
+      success.style.display = "block";
+
+      setTimeout(() => {
+        success.style.display = "none";
+      }, 1000);
+
+      loginForm.reset();
+    });
   });
 });
