@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const signupPopup = document.getElementById("signup-popup");
   const signupForm = document.getElementById("signup-form");
 
+  let volunteer = {};
+
   //   Render Volunteers
 
   const getVolunteers = async () => {
@@ -34,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const { volunteers } = await getVolunteers();
 
     const formatData = (date) => date.split("T")[0];
-
-    console.log(volunteers.sort((a, b) => b.createdAt - a.createdAt));
 
     return volunteers
       .reverse()
@@ -94,7 +94,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     fetch("http://localhost:3003/volunteer", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${volunteer.token}`,
+      },
       body: JSON.stringify({
         name: fullName,
         email: emailAddress,
@@ -153,20 +156,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     fetch("http://localhost:3003/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: emailAddress,
         password: password,
       }),
-    }).then((res) => {
-      successLogin.style.display = "block";
-      setTimeout(() => {
-        loginModal.toggle();
-        successLogin.style.display = "none";
-      }, 1000);
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        successLogin.style.display = "block";
 
-      loginForm.reset();
-    });
+        volunteer = user;
+
+        setTimeout(() => {
+          loginModal.toggle();
+          successLogin.style.display = "none";
+        }, 1000);
+
+        loginForm.reset();
+      });
   });
 
   // Handle Signup form
