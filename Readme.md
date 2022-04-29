@@ -32,7 +32,7 @@ Computer, tablet and mobile friendly design.
 
 Payment to the National Bank of Ukraine 🇺🇦
 
-<img src="../assets/screenshots/MainPage.png" width="128"/>
+<img src="assets/screenshots/MainPage.png" width="128"/>
 
 ### Submit Volunteer Form👨‍💻
 
