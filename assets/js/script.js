@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const logoutBtn = document.getElementById("logout");
 
+  const volunteerLoginContainer = document.getElementById(
+    "become-volunteer-login"
+  );
+  const volunteerLoginBtn = document.getElementById("volunteer-login-btn");
+
   const getUser = JSON.parse(localStorage.getItem("user")) || {};
   //   Render Volunteers
 
@@ -41,8 +46,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   };
 
+  const checkIfUserExist = (user) => {
+    return !!user.token
+      ? ((volunteerForm.style.display = "block"),
+        (volunteerLoginContainer.style.display = "none"))
+      : ((volunteerForm.style.display = "none"),
+        (volunteerLoginContainer.style.display = "block"));
+  };
+
   const toggleAuthHeader = (user = {}) => {
-    console.log("!!user.token", !!user.token);
     return !!user.token
       ? ((authHeader.style.display = "none"),
         (profileHeader.style.display = "block"))
@@ -50,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         (profileHeader.style.display = "none"));
   };
 
+  checkIfUserExist(getUser);
   toggleAuthHeader(getUser);
 
   const renderVolunteersList = async () => {
@@ -68,20 +81,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     style="background-color: rgb(38, 38, 38)"
                   >
                     <div class="card-body border rounded">
-                      <div
-                        class="d-flex  justify-content-between align-items-center"
-                      >
+                      <div class="d-flex  justify-content-between align-items-center">
                         <h5 class="card-title">${volunteer.name}</h5>
                         <div class="d-flex flex-column justify-content-between align-items-center">
                         <span class="fw-lighter date mb-2">Created: ${formatData(
                           volunteer.createdAt
                         )}</span>
-                            <div class="btn btn-primary"><a href="mailto:${
+                            <div class="border px-4 py-2 rounded"><a href="mailto:${
                               volunteer.email
                             }">Contact</a></div>
-                            </div>
-                        
-                      </div>
+                      </div>   
+                    </div>
 
                       <p class="mt-3">
                        ${volunteer.about}
@@ -212,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         successLogin.style.display = "block";
 
         toggleAuthHeader(user);
+        checkIfUserExist(user);
 
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -254,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         successSignup.style.display = "block";
 
         toggleAuthHeader(user);
+        checkIfUserExist(user);
 
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -277,5 +289,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     localStorage.clear();
 
     toggleAuthHeader({});
+    checkIfUserExist({});
+  });
+
+  volunteerLoginBtn.addEventListener("click", () => {
+    const modal = document.getElementById("signup-modal");
+    signupModal.toggle();
+    modal.style.display = "block";
   });
 });

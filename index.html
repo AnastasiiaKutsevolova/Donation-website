@@ -26,7 +26,7 @@
           <ul
             class="d-flex justify-content-evenly align-items-start m-0 fw-bolder"
           >
-            <li id="n-home"><a href="/">Home</a></li>
+            <li id="n-home" ><a href="/">Home</a></li>
             <li id="n-volunteer"><a href="#volunteer">Volunteer</a></li>
             <li id="n-about"><a href="#about">About</a></li>
           </ul>
@@ -52,7 +52,7 @@
           </div>
         </div>
     </header>
-    <main class="px-2 l parallax">
+    <main class="px-2 l parallax w-100">
       <section
         class="call-to-action h-100 d-flex justify-content-center align-items-center"
       >
@@ -93,11 +93,11 @@
             </button>
             <div
               id="watch-video"
-              class="d-flex justify-content-center align-items-center video support-btn"
+              class="d-flex justify-content-evenly align-items-center video support-btn"
               type="button"
             >
-                Watch Video <i class="fa fa-youtube-play"></i
-              >
+               <span class="pr-2">Watch Video  </span>
+               <i class="fa fa-youtube-play m-2"></i>
             </div>
           </div>
         </div>
@@ -204,64 +204,75 @@
 
       <!-- Volunteer -->
 
-      <section id="volunteer" class="p-4">
-        <h2 class="sign-up">Become a volunteer</h2>
-        <p class="p-login">Please fill in this form to create a profile</p>
-        <hr />
-        <div class="w-100 d-flex justify-content-evenly form-section">
-          <form id="volunteer-form" class="become-volunteer-form p-4 w-25">
-            <div class="invalid-feedback invalid-volunteer-form">*All fields are required.</div>
-            <div class="valid-feedback valid-volunteer-form bg-green-100">Form submitted</div>
+      <section id="volunteer" class="p-4 mt-5">
+        <!-- <h2 class="sign-up">Become a volunteer</h2> -->
 
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email*</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                name="email"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Name*</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputPassword1"
-                name="name"
-              />
-            </div>
-            <div class="mb-3 p-0">
-              <label for="floatingTextarea2">About*</label>
-              <div class="form-floating w-100">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                  name="about"
-                ></textarea>
-                <label for="floatingTextarea2">Comments</label>
+          <div class="d-flex flex-wrap justify-content-evenly form-section">
+            <div id="become-volunteer-login">
+              <div class="d-flex justify-content-center align-items-center h-100">
+                <button id="volunteer-login-btn" class="volunteer-login-btn">Become Volunteer</button>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <form id="volunteer-form" class="become-volunteer-form p-4 w-25 mt-5">
+              <p>Please fill in this form to become a volunteer</p>
 
-          <div class="list-volunteer-container w-75 p-2">
-            <div>
-              <ul id="list-volunteer"></ul>
+              <div class="invalid-feedback invalid-volunteer-form">*All fields are required.</div>
+              <div class="valid-feedback valid-volunteer-form bg-green-100">Form submitted</div>
+  
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email*</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  name="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Name*</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  name="name"
+                />
+              </div>
+              <div class="mb-3 p-0">
+                <label for="floatingTextarea2">About*</label>
+                <div class="form-floating w-100">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                    name="about"
+                  ></textarea>
+                  <label for="floatingTextarea2">Comments</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+            <div class="list-volunteer w-75 mt-5">
+              <h4 class="text-center my-4">Find you Volunteer</h4>
+              <div class="list-volunteer-container p-2">
+                <div>
+                  <ul id="list-volunteer">
+                    <!-- Dynamic content -->
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </div> 
       </section>
       <section
-        class="h-100 d-flex justify-content-center align-items-center"
+        class="h-100 d-flex  justify-content-center align-items-center"
         id="about"
       >
-        <div class="vision-section d-flex">
+        <div class="vision-section flex-wrap d-flex justify-content-center align-items-center">
           <div class="aboutUs">
             <h2 class="mission">Our Vision &amp; Mission</h2>
             <p class="our-info fs-4 m-4">

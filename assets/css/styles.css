@@ -12,10 +12,16 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
 }
 
 header {
   max-height: 100px;
+}
+
+.on-hover:hover {
+  color: #1a1aff;
 }
 
 /* Style for desktop */
@@ -39,8 +45,12 @@ header {
 }
 
 .list-volunteer-container {
-  max-height: 60vh;
+  max-height: 80vh;
   overflow: scroll;
+}
+
+.watch-video {
+  width: 400xp;
 }
 
 .date {
@@ -57,7 +67,7 @@ ul {
 }
 
 .mission {
-  font-size: 3.5em;
+  font-size: 50px;
 }
 
 .video-modal {
@@ -71,6 +81,37 @@ ul {
 
 .modal-dialog {
   max-width: 600px !important;
+}
+
+#volunteer {
+  height: 100vh;
+}
+
+.volunteer-login-btn {
+  background-image: linear-gradient(
+    to right,
+    #3d7eaa 0%,
+    #ffe47a 51%,
+    #3d7eaa 100%
+  );
+}
+.volunteer-login-btn {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 10px;
+  display: block;
+}
+
+.volunteer-login-btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 .parallax {
@@ -251,6 +292,11 @@ img {
 }
 
 /* Style for tablet */
+@media only screen and (max-width: 1050px) {
+  .ukraine-img {
+    display: none;
+  }
+}
 
 @media only screen and (max-width: 830px) {
   .aboutUs {
@@ -322,6 +368,25 @@ img {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+  }
+
+  #volunteer {
+    padding: 0 !important;
+  }
+
+  .carousel {
+    max-width: 100%;
+  }
+
+  /* #list-volunteer {
+  } */
+
+  .list-volunteer {
+    width: 100% !important;
+  }
+
+  .main-title {
+    font-size: 60px;
   }
 
   footer {
