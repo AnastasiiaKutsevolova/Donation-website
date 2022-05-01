@@ -78,7 +78,11 @@ Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
 - Node.js
 - Express
 - dotenv
-- Morgan
+- bcrypt
+- cors
+- Joi
+- JWT
+- mongoose
 ```
 
 ## Getting Started 🏁
