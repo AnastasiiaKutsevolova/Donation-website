@@ -32,9 +32,16 @@
           </ul>
         </nav>
       </div>
-      <div class="login m-4 fw-bolder d-flex justify-content-around">
-        <div id="signup-popup" class="signup">Signup</div> <span class="mx-2">|</span>
-        <div id="login-popup">Login</div>
+      <div>
+        <div class="login m-4 fw-bolder" id="user-auth-section">
+          <div class="d-flex justify-content-around">
+            <div id="signup-popup" class="signup">Signup</div> <span class="mx-2">|</span>
+            <div id="login-popup">Login</div>
+          </div>
+        </div>
+        <div id="user-profile-section">
+          <i class="fa fa-user-circle-o text-white fs-4 p-4"></i>
+        </div>
       </div>
     </header>
     <main class="px-2 l parallax">
@@ -77,15 +84,12 @@
               >
             </button>
             <div
+              id="watch-video"
               class="d-flex justify-content-center align-items-center video support-btn"
               type="button"
             >
-              <a
-                href="https://www.youtube.com/watch?v=rYzUMtjPgoY&amp;t=3s"
-                target="blank"
-              >
                 Watch Video <i class="fa fa-youtube-play"></i
-              ></a>
+              >
             </div>
           </div>
         </div>
@@ -467,6 +471,52 @@
         </div>
       </div>
     </div>
+
+    <!-- Watch video -->
+    <div class="modal  fade" id="video-modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="video-modal modal-body p-0">
+            <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m8vbDCMJg-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Profile popup -->
+    <div class="modal  fade" id="profile-modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content profile-modal-content  p-4 h-auto">
+          <div class="video-modal modal-body w-100 p-0">
+            <div class="update-profile">
+              <form>
+              <h2>Profile</h2>
+                <div class="mb-3">
+                  <div>
+                    <label for="name" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="profile-name">
+                  </div>
+                  <div>
+                    <label for="profile-email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="profile-email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="profile-password">
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Update Info</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 
