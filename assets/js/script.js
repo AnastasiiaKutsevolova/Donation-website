@@ -17,13 +17,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const signupPopup = document.getElementById("signup-popup");
   const signupForm = document.getElementById("signup-form");
 
-  const userAuthSection = document.getElementById("user-auth-section");
-  const userProfileSection = document.getElementById("user-profile-section");
+  const authHeader = document.getElementById("user-auth-section");
+  const profileHeader = document.getElementById("user-profile-section");
+  const profileLink = document.getElementById("user-auth-link");
 
   const watchPopup = document.getElementById("watch-video");
-  const profilePopup = document.getElementById("profile-modal");
+  // const profilePopup = document.getElementById("profile-modal");
 
-  const getUser = localStorage.getItem("user") || {};
+  const nameInputValue = document.getElementById("profile-name");
+  const emailInputValue = document.getElementById("profile-email");
+
+  const logoutBtn = document.getElementById("logout");
+
+  const getUser = JSON.parse(localStorage.getItem("user")) || {};
   //   Render Volunteers
 
   const getVolunteers = async () => {
@@ -35,20 +41,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   };
 
-  const toggleAuth = (user) => {
-    return user.token
-      ? ((userAuthSection.style.display = "none"),
-        (userProfileSection.style.display = "block"))
-      : ((userAuthSection.style.display = "block"),
-        (userProfileSection.style.display = "none"));
+  const toggleAuthHeader = (user = {}) => {
+    console.log("!!user.token", !!user.token);
+    return !!user.token
+      ? ((authHeader.style.display = "none"),
+        (profileHeader.style.display = "block"))
+      : ((authHeader.style.display = "block"),
+        (profileHeader.style.display = "none"));
   };
 
-  toggleAuth(JSON.parse(getUser));
+  toggleAuthHeader(getUser);
 
   const renderVolunteersList = async () => {
     const { volunteers } = await getVolunteers();
-
-    console.log("volunteers", volunteers);
 
     const formatData = (date) => date.split("T")[0];
 
@@ -162,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     modal.style.display = "block";
   });
 
-  userProfileSection.addEventListener("click", () => {
+  profileLink.addEventListener("click", () => {
     const modal = document.getElementById("profile-modal");
     profileModal.toggle();
 
@@ -206,9 +211,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       .then((user) => {
         successLogin.style.display = "block";
 
-        toggleAuth(user);
-
-        // volunteer = user;
+        toggleAuthHeader(user);
 
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -245,25 +248,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
         email: emailAddress,
         password: password,
       }),
-    }).then((res) => {
-      successSignup.style.display = "block";
-      setTimeout(() => {
-        signupModal.toggle();
-        successSignup.style.display = "none";
-      }, 1000);
+    })
+      .then((res) => res.json())
+      .then(({ user }) => {
+        successSignup.style.display = "block";
 
-      signupForm.reset();
-    });
+        toggleAuthHeader(user);
+
+        localStorage.setItem("user", JSON.stringify(user));
+
+        setTimeout(() => {
+          signupModal.toggle();
+          successSignup.style.display = "none";
+        }, 1000);
+
+        signupForm.reset();
+      });
   });
 
   function displayUserProfileInfo() {
-    const nameInputValue = document.getElementById("profile-name");
-    const emailInputValue = document.getElementById("profile-email");
-    // const passwordInputValue = document.getElementById("profile-name");
-
-    const { user } = JSON.parse(getUser);
+    const { user } = getUser;
 
     nameInputValue.value = user.name;
     emailInputValue.value = user.email;
   }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.clear();
+
+    toggleAuthHeader({});
+  });
 });
