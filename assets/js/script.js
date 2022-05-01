@@ -17,23 +17,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const signupPopup = document.getElementById("signup-popup");
   const signupForm = document.getElementById("signup-form");
 
-  let volunteer = {};
+  const userAuthSection = document.getElementById("user-auth-section");
+  const userProfileSection = document.getElementById("user-profile-section");
 
+  const watchPopup = document.getElementById("watch-video");
+  const profilePopup = document.getElementById("profile-modal");
+
+  const getUser = localStorage.getItem("user") || {};
   //   Render Volunteers
 
   const getVolunteers = async () => {
     try {
       const res = await fetch("http://localhost:3003/volunteer");
-      const volunteers = await res.json();
-
-      return volunteers;
+      return res.json();
     } catch (error) {
       console.error(error);
     }
   };
 
+  const toggleAuth = (user) => {
+    return user.token
+      ? ((userAuthSection.style.display = "none"),
+        (userProfileSection.style.display = "block"))
+      : ((userAuthSection.style.display = "block"),
+        (userProfileSection.style.display = "none"));
+  };
+
+  toggleAuth(JSON.parse(getUser));
+
   const renderVolunteersList = async () => {
     const { volunteers } = await getVolunteers();
+
+    console.log("volunteers", volunteers);
 
     const formatData = (date) => date.split("T")[0];
 
@@ -92,11 +107,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       validationVolunteer.style.display = "none";
     }
 
+    const { token } = JSON.parse(localStorage.getItem("user"));
+
     fetch("http://localhost:3003/volunteer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${volunteer.token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         name: fullName,
@@ -125,17 +142,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
     {}
   );
 
+  const videoModal = new bootstrap.Modal(
+    document.getElementById("video-modal")
+  );
+
+  const profileModal = new bootstrap.Modal(
+    document.getElementById("profile-modal")
+  );
+
   loginPopup.addEventListener("click", () => {
     const modal = document.getElementById("login-modal");
-    console.log("click");
     loginModal.toggle();
     modal.style.display = "block";
   });
 
   signupPopup.addEventListener("click", () => {
     const modal = document.getElementById("signup-modal");
-    console.log("click");
     signupModal.toggle();
+    modal.style.display = "block";
+  });
+
+  userProfileSection.addEventListener("click", () => {
+    const modal = document.getElementById("profile-modal");
+    profileModal.toggle();
+
+    modal.style.display = "block";
+
+    displayUserProfileInfo();
+  });
+
+  //Watch Popup
+
+  watchPopup.addEventListener("click", () => {
+    const modal = document.getElementById("video-modal");
+    videoModal.toggle();
     modal.style.display = "block";
   });
 
@@ -156,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     fetch("http://localhost:3003/login", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: emailAddress,
         password: password,
@@ -165,7 +206,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
       .then((user) => {
         successLogin.style.display = "block";
 
-        volunteer = user;
+        toggleAuth(user);
+
+        // volunteer = user;
+
+        localStorage.setItem("user", JSON.stringify(user));
 
         setTimeout(() => {
           loginModal.toggle();
@@ -210,4 +255,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
       signupForm.reset();
     });
   });
+
+  function displayUserProfileInfo() {
+    const nameInputValue = document.getElementById("profile-name");
+    const emailInputValue = document.getElementById("profile-email");
+    // const passwordInputValue = document.getElementById("profile-name");
+
+    const { user } = JSON.parse(getUser);
+
+    nameInputValue.value = user.name;
+    emailInputValue.value = user.email;
+  }
 });
