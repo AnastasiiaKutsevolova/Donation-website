@@ -56,6 +56,19 @@ ul {
   font-size: 3.5em;
 }
 
+.video-modal {
+  width: 50vw;
+  height: 50vh;
+}
+
+.profile-modal-content {
+  height: 55vh !important;
+}
+
+.modal-dialog {
+  max-width: 600px !important;
+}
+
 .parallax {
   min-height: 500px;
   background-attachment: fixed;
