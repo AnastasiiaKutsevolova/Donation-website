@@ -143,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }, 1000);
 
       volunteerForm.reset();
+
+      window.location.reload();
     });
   });
 
