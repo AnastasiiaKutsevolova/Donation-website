@@ -26,9 +26,9 @@
           <ul
             class="d-flex justify-content-evenly align-items-start m-0 fw-bolder"
           >
-            <li id="n-home" ><a href="/">Home</a></li>
-            <li id="n-volunteer"><a href="#volunteer">Volunteer</a></li>
-            <li id="n-about"><a href="#about">About</a></li>
+            <li class="main active"><a href="/">Home</a></li>
+            <li class="volunteer"><a href="#volunteer">Volunteer</a></li>
+            <li class="about"><a href="#about">About</a></li>
           </ul>
         </nav>
       </div>
@@ -54,6 +54,7 @@
     </header>
     <main class="px-2 l parallax w-100">
       <section
+        id="main"
         class="call-to-action h-100 d-flex justify-content-center align-items-center"
       >
         <div class="main-section px-4">
@@ -105,7 +106,7 @@
           class="ukraine-img"
           src="https://wehco.media.clients.ellingtoncms.com/img/photos/2022/02/16/Ukraine_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d"
         />
-        <a class="scroll-pointer" href="#section2"
+        <a class="scroll-pointer" href="#photo-grid"
           ><i
             class="fas d-flex justify-content-center align-items-center"
             style="font-size: 3rem"
@@ -117,7 +118,7 @@
       <!-- Photo Grid -->
 
       <section
-        id="section2"
+        id="photo-grid"
         class="d-flex justify-content-center align-items-center"
       >
         <div class="grid-wrapper mt-5">
@@ -250,14 +251,14 @@
                     style="height: 100px"
                     name="about"
                   ></textarea>
-                  <!-- <label for="floatingTextarea2">Comments</label> -->
+                  <label for="floatingTextarea2">Comments</label>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary text-black bg-light border-0">Submit</button>
             </form>
             
             <div class="list-volunteer w-75 mt-5">
-              <h4 class="text-center my-4">Find you Volunteer</h4>
+              <h4 class="text-center my-4">Find a Volunteer</h4>
               <div class="list-volunteer-container p-2">
                 <div>
                   <ul id="list-volunteer">
@@ -514,7 +515,7 @@
               <h2>Profile</h2>
                 <div class="mb-3">
                   <div>
-                    <label for="name" class="form-label">Password</label>
+                    <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="profile-name">
                   </div>
                   <div>

@@ -16,6 +16,10 @@ body {
   width: 100vw;
 }
 
+nav ul li.active {
+  border-bottom: 2px solid #fff;
+}
+
 header {
   max-height: 100px;
 }
@@ -29,6 +33,10 @@ header {
 header {
   background-color: #1a1a1a;
   z-index: 2;
+}
+
+#volunteer {
+  height: 100vh;
 }
 
 .scroll-pointer {
@@ -81,10 +89,6 @@ ul {
 
 .modal-dialog {
   max-width: 600px !important;
-}
-
-#volunteer {
-  height: 100vh;
 }
 
 .volunteer-login-btn {
