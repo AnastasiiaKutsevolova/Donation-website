@@ -16,6 +16,16 @@ body {
   width: 100vw;
 }
 
+.navbar-nav {
+  background-color: transparent !important;
+}
+
+.navbar-brand {
+  background: linear-gradient(to bottom, #3d7eaa 40%, #ffe47a 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 nav ul li.active {
   border-bottom: 2px solid #fff;
 }
@@ -83,10 +93,6 @@ ul {
   height: 50vh;
 }
 
-.profile-modal-content {
-  height: 55vh !important;
-}
-
 .modal-dialog {
   max-width: 600px !important;
 }
@@ -116,6 +122,11 @@ ul {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+}
+
+.profile-alert,
+.profile-success {
+  display: none;
 }
 
 .parallax {

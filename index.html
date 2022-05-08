@@ -18,22 +18,33 @@
   </head>
   <body>
     <header class="position-fixed top-0 w-100 d-flex justify-content-between">
-      <div class="logo-container d-flex align-items-center">
-        <div class="logo-text rounded me-4">
-          <a href="/">#StandWithUkraine</a>
-        </div>
-        <nav class="menu">
-          <ul
-            class="d-flex justify-content-evenly align-items-start m-0 fw-bolder"
-          >
-            <li class="main active"><a href="/">Home</a></li>
-            <li class="volunteer"><a href="#volunteer">Volunteer</a></li>
-            <li class="about"><a href="#about">About</a></li>
-          </ul>
+      <div class="logo-container w-100 d-flex align-items-center">
+        <nav class="navbar bg-transparent w-100 navbar-expand-lg navbar-dark  menu">
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="/">
+              #StandWithUkraine
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-dark text-sm-center w-100">
+                <li class="nav-item main active">
+                  <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item volunteer">
+                  <a class="nav-link" href="#volunteer">Volunteer</a>
+                </li>
+                 <li class="nav-item about">
+                  <a class="nav-link" href="#about">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
       <div>
-        <div class="login m-4 fw-bolder" id="user-auth-section">
+        <div class="login m-4" id="user-auth-section">
           <div class="d-flex justify-content-around">
             <div id="signup-popup" class="signup">Signup</div> <span class="mx-2">|</span>
             <div id="login-popup">Login</div>
@@ -42,7 +53,7 @@
           <div id="user-profile-section">
             <div class="btn-group pl-2 d-flex justify-content-center align-items-center">
               <div type="button" class="dropdown-toggle small bg-transparent" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user-circle-o text-white fs-4 p-4"></i>
+                <i class="fa fa-user-circle-o text-white fs-4 p-3"></i>
               </div>
               <ul class="dropdown-menu">
                 <li id="user-auth-link" class="dropdown-item pointer-event">Profile</li>
@@ -116,7 +127,6 @@
       </section>
 
       <!-- Photo Grid -->
-
       <section
         id="photo-grid"
         class="d-flex justify-content-center align-items-center"
@@ -204,10 +214,7 @@
       </section>
 
       <!-- Volunteer -->
-
       <section id="volunteer" class="p-4 mt-5">
-        <!-- <h2 class="sign-up">Become a volunteer</h2> -->
-
           <div class="d-flex justify-content-evenly form-section">
             <div id="become-volunteer-login">
               <div class="d-flex justify-content-center align-items-center h-100">
@@ -256,13 +263,12 @@
               </div>
               <button type="submit" class="btn btn-primary text-black bg-light border-0">Submit</button>
             </form>
-            
             <div class="list-volunteer w-75 mt-5">
               <h4 class="text-center my-4">Find a Volunteer</h4>
               <div class="list-volunteer-container p-2">
                 <div>
                   <ul id="list-volunteer">
-                    <!-- Dynamic content -->
+                    <!-- Dynamic content list volunteers -->
                   </ul>
                 </div>
               </div>
@@ -366,7 +372,6 @@
     </main>
 
     <!-- Signup Modal -->
-
     <div class="modal  fade" id="signup-modal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -503,31 +508,31 @@
       </div>
     </div>
 
-
-
     <!-- Profile popup -->
     <div class="modal  fade" id="profile-modal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content profile-modal-content  p-4 h-auto">
-          <div class="video-modal modal-body w-100 p-0">
+        <div class="modal-content profile-modal-content  p-3 ">
+          <div class="modal-body w-100 p-0">
             <div class="update-profile">
-              <form>
-              <h2>Profile</h2>
-                <div class="mb-3">
+              <div class="alert alert-danger profile-alert p-1" role="alert">
+                At least one field is required!
+              </div>
+              <div class="alert alert-success profile-success p-1" role="alert">
+                Updated!
+              </div>
+              <form id="profile-info-form">
+              <h2>Update Profile</h2>
                   <div>
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="profile-name">
-                  </div>
-                  <div>
-                    <label for="profile-email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="profile-email">
+                    <input name="name" type="text" class="form-control" id="profile-name">
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="profile-password">
+                    <input name="password" type="password" class="form-control" id="profile-password">
                   </div>
-                  <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Update Info</button>
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <button type="submit" class="btn btn-primary update-btn">Update Info</button>
+                    <i class="fa fa-trash-o btn delete-btn"></i>
                   </div>
                 </div>
               </form>
@@ -536,10 +541,6 @@
         </div>
       </div>
     </div>
-
-
-
-
 
     <footer
       class="main-page-footer d-flex flex-wrap align-items-center justify-content-around py-3 my-0 border-top"

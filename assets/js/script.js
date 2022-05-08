@@ -1,3 +1,5 @@
+const BASE_URL = "http://localhost:3003";
+
 document.addEventListener("DOMContentLoaded", function (event) {
   const volunteerForm = document.getElementById("volunteer-form");
   const volunteersList = document.getElementById("list-volunteer");
@@ -24,8 +26,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const watchPopup = document.getElementById("watch-video");
   // const profilePopup = document.getElementById("profile-modal");
 
-  const nameInputValue = document.getElementById("profile-name");
-  const emailInputValue = document.getElementById("profile-email");
+  const profileNameInput = document.getElementById("profile-name");
+
+  // const updateInfoBtn = document.querySelector(".update-btn");
+
+  const profileInfoForm = document.getElementById("profile-info-form");
 
   const logoutBtn = document.getElementById("logout");
 
@@ -38,6 +43,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const sections = document.querySelectorAll("section");
   const navLi = document.querySelectorAll("nav ul li");
+
+  const profileAlert = document.querySelector(".profile-alert");
+  const profileSuccess = document.querySelector(".profile-success");
+
+  const deleteBtn = document.querySelector(".delete-btn");
+
+  const sanitizedObj = (obj) =>
+    Object.keys(obj).reduce(
+      (acc, key) => (obj[key] ? { ...acc, [key]: obj[key] } : acc),
+      {}
+    );
+
+  const getToken = () => JSON.parse(localStorage.getItem("user"));
 
   window.addEventListener("scroll", () => {
     let current = "";
@@ -53,9 +71,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     navLi.forEach((li) => {
       li.classList.remove("active");
+      li.childNodes[1].classList.remove("active");
 
       if (li.classList.contains(current)) {
         li.classList.add("active");
+        li.childNodes[1].classList.add("active");
       }
     });
   });
@@ -64,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const getVolunteers = async () => {
     try {
-      const res = await fetch("http://localhost:3003/volunteer");
+      const res = await fetch(`${BASE_URL}/volunteer`);
       return res.json();
     } catch (error) {
       console.error(error);
@@ -147,9 +167,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       validationVolunteer.style.display = "none";
     }
 
-    const { token } = JSON.parse(localStorage.getItem("user"));
+    const { token } = getToken();
 
-    fetch("http://localhost:3003/volunteer", {
+    fetch(`${BASE_URL}/volunteer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -236,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       validationLogin.style.display = "none";
     }
 
-    fetch("http://localhost:3003/login", {
+    fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -278,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       validationSignup.style.display = "none";
     }
 
-    fetch("http://localhost:3003/signup", {
+    fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -306,10 +326,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   function displayUserProfileInfo() {
-    const { user } = getUser;
+    const { token } = getToken();
 
-    nameInputValue.value = user.name;
-    emailInputValue.value = user.email;
+    fetch(`${BASE_URL}/user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then(({ user }) => {
+        profileNameInput.value = user.name;
+      });
   }
 
   logoutBtn.addEventListener("click", () => {
@@ -323,5 +352,66 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const modal = document.getElementById("signup-modal");
     signupModal.toggle();
     modal.style.display = "block";
+  });
+
+  //Update User Profile
+
+  profileInfoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = profileInfoForm.elements["name"].value;
+    const password = profileInfoForm.elements["password"].value;
+
+    const updatedValues = sanitizedObj({ name, password });
+
+    if (Object.keys(updatedValues).length === 0) {
+      //display validation error
+      profileAlert.style.display = "block";
+
+      setTimeout(() => {
+        profileAlert.style.display = "none";
+      }, 2000);
+
+      return;
+    }
+
+    const { token } = getToken();
+
+    fetch(`${BASE_URL}/user`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedValues),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        profileSuccess.style.display = "block";
+
+        displayUserProfileInfo();
+
+        setTimeout(() => {
+          profileSuccess.style.display = "none";
+        }, 2000);
+      });
+  });
+
+  //Delete User
+  deleteBtn.addEventListener("click", () => {
+    const confirmation = confirm(
+      "Are you sure you want to Delete your profile?"
+    );
+    const { token } = getToken();
+
+    if (confirmation) {
+      fetch(`${BASE_URL}/user`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }).then(() => {
+        localStorage.removeItem("user");
+        window.location.reload();
+      });
+    }
   });
 });
