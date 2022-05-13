@@ -1,4 +1,5 @@
-/* Style for all */
+/* Styles for all */
+
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,10 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+/* Styles for desktop */
+
+/* Navbar styles */
 
 .navbar-nav {
   background-color: transparent !important;
@@ -38,110 +43,6 @@ header {
   color: #1a1aff;
 }
 
-/* Style for desktop */
-
-header {
-  background-color: #1a1a1a;
-  z-index: 2;
-}
-
-#volunteer {
-  height: 100vh;
-}
-
-.scroll-pointer {
-  position: absolute;
-  bottom: 0;
-}
-
-.card {
-  box-shadow: 7px 7px 5px 0px rgba(102, 102, 102, 0.2);
-}
-
-.card-body {
-  background-color: #1a1a1a;
-}
-
-.list-volunteer-container {
-  max-height: 80vh;
-  overflow: scroll;
-}
-
-.watch-video {
-  width: 400xp;
-}
-
-.date {
-  font-size: small;
-}
-
-.carousel {
-  max-width: 55%;
-  max-height: 35%;
-}
-
-ul {
-  list-style: none;
-}
-
-.mission {
-  font-size: 50px;
-}
-
-.video-modal {
-  width: 50vw;
-  height: 50vh;
-}
-
-.modal-dialog {
-  max-width: 600px !important;
-}
-
-.volunteer-login-btn {
-  background-image: linear-gradient(
-    to right,
-    #3d7eaa 0%,
-    #ffe47a 51%,
-    #3d7eaa 100%
-  );
-}
-.volunteer-login-btn {
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  /* box-shadow: 0 0 20px #eee; */
-  border-radius: 10px;
-  display: block;
-}
-
-.volunteer-login-btn:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-}
-
-.profile-alert,
-.profile-success {
-  display: none;
-}
-
-.parallax {
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.logo-text {
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
 .menu {
   width: 400px;
 }
@@ -154,6 +55,51 @@ a:visited {
 
 .nav a:hover {
   border-bottom: 1.5px solid rgb(228, 229, 231);
+}
+
+header {
+  background-color: #1a1a1a;
+  z-index: 2;
+}
+
+.logo-text {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.sign-up {
+  text-align: center;
+  padding-top: 4rem;
+  margin: 1rem;
+}
+
+.container-login {
+  width: 70%;
+  display: inline-block;
+}
+
+.login {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Home Page Styles */
+
+.watch-video {
+  width: 400xp;
+}
+
+.video-modal {
+  width: 50vw;
+  height: 50vh;
+}
+
+.video {
+  background: transparent;
+}
+
+.modal-dialog {
+  max-width: 600px !important;
 }
 
 .ukraine-img {
@@ -190,10 +136,6 @@ a:visited {
   display: block;
 }
 
-.video {
-  background: transparent;
-}
-
 .btn-grad:hover {
   background-position: right center;
   color: #fff;
@@ -202,10 +144,6 @@ a:visited {
 
 .support-btn a {
   color: #fff;
-}
-
-.become-volunteer-form {
-  width: 400px !important;
 }
 
 .main-title {
@@ -217,26 +155,6 @@ main {
   color: #fff;
 }
 
-.our-info {
-  align-items: center;
-}
-
-.sign-up {
-  text-align: center;
-  padding-top: 4rem;
-  margin: 1rem;
-}
-
-.container-login {
-  width: 70%;
-  display: inline-block;
-}
-
-.login {
-  color: #fff;
-  cursor: pointer;
-}
-
 label {
   margin-top: 0.5rem;
 }
@@ -246,9 +164,83 @@ label {
   margin-bottom: 0 !important;
 }
 
-.footer-text {
-  font-size: 14px;
-  font-weight: normal;
+/* Volunteer Section Styles */
+
+#volunteer {
+  height: 100vh;
+}
+
+.become-volunteer-form {
+  width: 400px !important;
+}
+
+.scroll-pointer {
+  position: absolute;
+  bottom: 0;
+}
+
+.card {
+  box-shadow: 7px 7px 5px 0px rgba(102, 102, 102, 0.2);
+}
+
+.card-body {
+  background-color: #1a1a1a;
+}
+
+.list-volunteer-container {
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.date {
+  font-size: small;
+}
+
+ul {
+  list-style: none;
+}
+
+.volunteer-login-btn {
+  background-image: linear-gradient(
+    to right,
+    #3d7eaa 0%,
+    #ffe47a 51%,
+    #3d7eaa 100%
+  );
+}
+.volunteer-login-btn {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.volunteer-login-btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* About Section Styles */
+
+.carousel {
+  max-width: 55%;
+  max-height: 35%;
+}
+
+.mission {
+  font-size: 50px;
+}
+
+.profile-alert,
+.profile-success,
+.login-alert {
+  display: none;
 }
 
 .humanity-pic {
@@ -263,7 +255,13 @@ label {
   font-size: 16px;
 }
 
-/* Mansory  */
+.footer-text {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* Mansory Styles Section */
+
 img {
   max-width: 100%;
   height: auto;
@@ -271,11 +269,9 @@ img {
   display: inline-block;
 }
 
-/* Main CSS */
 .grid-wrapper > div {
   display: flex;
   justify-content: space-evenly;
-  /* align-items: center; */
 }
 
 .grid-wrapper > div > img {
@@ -307,6 +303,7 @@ img {
 }
 
 /* Style for tablet */
+
 @media only screen and (max-width: 1050px) {
   .ukraine-img {
     display: none;
@@ -334,51 +331,14 @@ img {
     width: 100%;
   }
 
-  .ukraine-img {
-    width: 100%;
-    grid-row: 2/3;
-  }
-
   .support-btn {
     padding: 0.3rem 1.2rem;
     margin: 1rem;
   }
 
-  .call-to-action {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
   .our-info {
     text-align: center;
     font-size: 20px;
-  }
-
-  .aboutUs {
-    display: inline-block;
-    font-size: 1px;
-    align-content: flex-start;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .p-main {
-    font-size: 16px;
-  }
-
-  .p-login {
-    font-size: 16px;
-  }
-
-  footer {
-    padding-bottom: 0 !important;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-  }
-
-  .main-page-footer {
-    display: flex !important;
-    justify-content: center !important;
   }
 
   .carousel {
@@ -398,48 +358,13 @@ img {
     align-items: center;
   }
 
-  #volunteer {
-    padding: 0 !important;
-  }
-
-  .carousel {
-    max-width: 100%;
-  }
-
-  /* #list-volunteer {
-  } */
-
-  .list-volunteer {
-    width: 100% !important;
-  }
-
   .navbar-collapse {
     background-color: #1a1a1a;
+    padding: 5px 15px;
   }
 
   .main-title {
     font-size: 60px;
-  }
-
-  footer {
-    margin-top: 1rem !important;
-    position: static !important;
-    font-size: smaller !important;
-  }
-
-  span {
-    font-size: 16px;
-    padding-left: 0px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  .ukraine-img {
-    width: 100%;
-    grid-row: 1/2;
-    border-radius: 2px;
   }
 
   .support-btn-container,
@@ -448,63 +373,32 @@ img {
     flex-direction: column;
   }
 
-  .vision-section {
-    margin-top: 50px;
-  }
-
   .donate {
-    padding: 15px 0;
+    padding: 20px 0;
   }
 
-  .call-to-action {
-    display: grid;
-    grid-template-columns: 1fr;
+  #volunteer {
+    padding: 0 !important;
   }
 
-  .main {
-    padding: 0;
-    margin-bottom: 1rem;
+  .list-volunteer {
+    width: 100% !important;
   }
 
-  .p-login {
-    display: none;
-  }
-
-  .p-main {
-    font-size: 12px;
-  }
-
-  .our-info {
-    font-size: 16px;
-  }
-
-  .container {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .aboutUs {
-    display: inline-block;
-    font-size: 1px;
-    align-content: flex-start;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .humanity-pic {
-    width: 50%;
+  .vision-section {
+    margin-top: 40px;
   }
 
   .mission {
     margin-top: 150px 0;
   }
 
-  .main-page-footer {
-    display: flex !important;
-    justify-content: center !important;
-  }
-
   .carousel {
     display: none;
+  }
+
+  .main-page-footer {
+    padding-right: 20px;
+    text-align: center;
   }
 }
