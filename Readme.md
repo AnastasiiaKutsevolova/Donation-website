@@ -30,15 +30,15 @@ Computer, tablet and mobile friendly design.
 
 ### Donate 💵
 
-Payment to the National Bank of Ukraine 🇺🇦
+Donate to the National Bank of Ukraine 🇺🇦
 
 <img src="assets/screenshots/MainPage.png" width="300"/>
 
 ### Find a Volunteer 🕵️‍♂️
 
-<img src="assets/screenshots/VolunteerPage.png" width="300"/>
-
 Send direct email
+
+<img src="assets/screenshots/VolunteerPage.png" width="300"/>
 
 ### Submit Volunteer Form👨‍💻
 
@@ -59,7 +59,7 @@ Send direct email
 
 ### Watch Video 📺
 
-Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
+Watch Video on Youtube about Ukraine
 
 <img src="assets/screenshots/WatchVideo.png" width="300"/>
 
@@ -73,7 +73,7 @@ Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
 - Instagram
 ```
 
-<img src="assets/screenshots/CarousellPictures.png" width="300"/>
+<img src="assets/screenshots/CarousellPicrures.png" width="300"/>
 
 ## Dependencies 💻
 
