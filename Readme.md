@@ -34,6 +34,12 @@ Payment to the National Bank of Ukraine 🇺🇦
 
 <img src="assets/screenshots/MainPage.png" width="300"/>
 
+### Find a Volunteer 🕵️‍♂️
+
+<img src="assets/screenshots/VolunteerPage.png" width="300"/>
+
+Send direct email
+
 ### Submit Volunteer Form👨‍💻
 
 - Name
@@ -42,10 +48,6 @@ Payment to the National Bank of Ukraine 🇺🇦
 
 <img src="assets/screenshots/BecomeVolunteer.png" width="300"/>
 
-### Find a Volunteer 🕵️‍♂️
-
-Send direct email
-
 ### Signup/Login Form 📑
 
 - Name
@@ -53,11 +55,13 @@ Send direct email
 - Password
 
 <img src="assets/screenshots/SignUp.png" width="300"/>
-<img src="assets/screenshots/LoginForm.png" width="300"/>
+<img src="assets/screenshots/Login.png" width="300"/>
 
 ### Watch Video 📺
 
 Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
+
+<img src="assets/screenshots/WatchVideo.png" width="300"/>
 
 <img src="assets/screenshots/MansoryGrid.png" width="300"/>
 
@@ -69,7 +73,6 @@ Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
 - Instagram
 ```
 
-<img src="assets/screenshots/Vision&Mission.png" width="300"/>
 <img src="assets/screenshots/CarousellPictures.png" width="300"/>
 
 ## Dependencies 💻
@@ -77,12 +80,12 @@ Watch Video on Youtube about Russian Attack & Ukrainian humanitarian crisis
 ```
 - Node.js
 - Express
-- dotenv
-- bcrypt
-- cors
+- Dotenv
+- Bcrypt
+- Cors
 - Joi
 - JWT
-- mongoose
+- Mongoose
 ```
 
 ## Getting Started 🏁
