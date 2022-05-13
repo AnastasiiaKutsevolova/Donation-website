@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const profileAlert = document.querySelector(".profile-alert");
   const profileSuccess = document.querySelector(".profile-success");
 
+  const loginAlert = document.querySelector(".login-alert");
+
   const deleteBtn = document.querySelector(".delete-btn");
 
   const sanitizedObj = (obj) =>
@@ -265,18 +267,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }),
     })
       .then((res) => res.json())
-      .then((user) => {
-        successLogin.style.display = "block";
+      .then(({ token, user, message }) => {
+        if (!user) {
+          loginAlert.style.display = "block";
 
-        toggleAuthHeader(user);
-        checkIfUserExist(user);
+          loginAlert.innerText = message;
+        } else {
+          loginAlert.style.display = "none";
+          successLogin.style.display = "block";
+          console.log(user);
+          toggleAuthHeader({ token });
+          checkIfUserExist({ token });
 
-        localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
 
-        setTimeout(() => {
-          loginModal.toggle();
-          successLogin.style.display = "none";
-        }, 1000);
+          setTimeout(() => {
+            loginModal.toggle();
+            successLogin.style.display = "none";
+          }, 1000);
+        }
 
         loginForm.reset();
       });
