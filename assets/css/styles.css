@@ -322,6 +322,18 @@ img {
     margin-left: 0;
   }
 
+  .mission {
+    text-align: center;
+  }
+
+  .vision-section {
+    flex-direction: column;
+  }
+
+  .video-modal {
+    width: 100%;
+  }
+
   .ukraine-img {
     width: 100%;
     grid-row: 2/3;
@@ -370,6 +382,7 @@ img {
   }
 
   .carousel {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
   }
@@ -400,6 +413,10 @@ img {
     width: 100% !important;
   }
 
+  .navbar-collapse {
+    background-color: #1a1a1a;
+  }
+
   .main-title {
     font-size: 60px;
   }
@@ -425,13 +442,18 @@ img {
     border-radius: 2px;
   }
 
-  .support-btn-container {
-    display: flex-center;
+  .support-btn-container,
+  .form-section,
+  .vision-section {
+    flex-direction: column;
   }
 
-  .support-btn {
-    padding: 0.3rem 1.2rem;
-    margin: 1rem;
+  .vision-section {
+    margin-top: 50px;
+  }
+
+  .donate {
+    padding: 15px 0;
   }
 
   .call-to-action {
@@ -473,13 +495,16 @@ img {
     width: 50%;
   }
 
+  .mission {
+    margin-top: 150px 0;
+  }
+
   .main-page-footer {
     display: flex !important;
     justify-content: center !important;
   }
 
   .carousel {
-    display: flex;
-    justify-content: center;
+    display: none;
   }
 }
