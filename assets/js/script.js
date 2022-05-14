@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3003";
+const BASE_URL = "https://donation-ukraine-app.herokuapp.com";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const volunteerForm = document.getElementById("volunteer-form");
