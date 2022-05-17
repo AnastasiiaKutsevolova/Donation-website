@@ -308,9 +308,17 @@ img {
   .ukraine-img {
     display: none;
   }
-}
 
-@media only screen and (max-width: 830px) {
+  .vision-section {
+    flex-direction: column;
+  }
+
+  .carousel {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
   .aboutUs {
     display: inline-block;
     font-size: 1px;
@@ -318,7 +326,9 @@ img {
     width: 100%;
     margin-left: 0;
   }
+}
 
+@media only screen and (max-width: 830px) {
   .mission {
     text-align: center;
   }
@@ -344,17 +354,11 @@ img {
     text-align: center;
     font-size: 20px;
   }
-
-  .carousel {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-  }
 }
 
 /* Style for mobile phone */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   header {
     position: fixed !important;
     top: 0;
