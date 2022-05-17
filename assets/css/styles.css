@@ -311,13 +311,6 @@ img {
 }
 
 @media only screen and (max-width: 830px) {
-  /* html,
-  body {
-    overflow-x: hidden;
-    width: 100vw !important;
-    box-sizing: border-box;
-  } */
-
   .aboutUs {
     display: inline-block;
     font-size: 1px;
