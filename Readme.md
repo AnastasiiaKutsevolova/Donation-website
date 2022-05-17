@@ -1,5 +1,7 @@
 # #StandWithUkraine 🇺🇦
 
+## Live Version [Click here](https://donation-ukraine.netlify.app/)
+
 Non-profit donation website that provides a convenient way to contribute, not requiring travel, envelopes, or stamps for supporters to give help. This low barrier to entry means that any supporter with a computer, smartphone, or access to the internet can give the support from the comfort of their home.
 
 ## Audience
@@ -14,7 +16,7 @@ Canadian residents and people all over the world who want to support the Ukraini
  HTML, CSS, JavaScript,Bootstrap.
 ```
 
-### Bach-end:
+### Back-end:
 
 ```
  Node.js, Express, MongoDB.
