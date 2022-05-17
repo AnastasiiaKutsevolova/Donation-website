@@ -150,6 +150,10 @@ header {
   font-size: 5em;
 }
 
+#home {
+  position: relative;
+}
+
 main {
   background-color: #1a1a1a;
   color: #fff;
@@ -165,10 +169,6 @@ label {
 }
 
 /* Volunteer Section Styles */
-
-#volunteer {
-  height: 100vh;
-}
 
 .become-volunteer-form {
   width: 400px !important;
@@ -188,7 +188,7 @@ label {
 }
 
 .list-volunteer-container {
-  max-height: 80vh;
+  max-height: 500px;
   overflow: scroll;
 }
 
@@ -311,6 +311,13 @@ img {
 }
 
 @media only screen and (max-width: 830px) {
+  /* html,
+  body {
+    overflow-x: hidden;
+    width: 100vw !important;
+    box-sizing: border-box;
+  } */
+
   .aboutUs {
     display: inline-block;
     font-size: 1px;
@@ -336,6 +343,10 @@ img {
     margin: 1rem;
   }
 
+  .extra-picture {
+    display: none !important;
+  }
+
   .our-info {
     text-align: center;
     font-size: 20px;
@@ -350,12 +361,19 @@ img {
 
 /* Style for mobile phone */
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   header {
+    position: fixed !important;
+    top: 0;
+    width: fit-content;
     display: inline-block;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+  }
+
+  .navbar-nav {
+    text-align: center;
   }
 
   .navbar-collapse {
@@ -373,16 +391,24 @@ img {
     flex-direction: column;
   }
 
+  #photo-grid {
+    width: fit-content;
+  }
+
   .donate {
     padding: 20px 0;
   }
 
-  #volunteer {
+  #volunteer-form {
     padding: 0 !important;
   }
 
+  .become-volunteer-form {
+    width: 90% !important;
+  }
+
   .list-volunteer {
-    width: 100% !important;
+    width: 90% !important;
   }
 
   .vision-section {
@@ -400,5 +426,9 @@ img {
   .main-page-footer {
     padding-right: 20px;
     text-align: center;
+  }
+
+  #watch-video {
+    justify-content: center !important;
   }
 }
